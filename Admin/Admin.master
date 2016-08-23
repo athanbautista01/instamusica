@@ -1,0 +1,237 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="Admin_Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="<%= Page.ResolveUrl("/images/rnr.png") %>" />
+    <title>InstaMusica | Admin</title>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+    <link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/admin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/jquerysctipttop.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/kalendar/kalendar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/plugins/scroll/nanoscroller.css" />
+    <link href="assets/plugins/morris/morris.css" rel="stylesheet" />
+</head>
+<body class="light_theme  fixed_header left_nav_fixed">
+<form id="form1" runat="server">
+    <div class="wrapper">
+        <!--\\\\\\\ wrapper Start \\\\\\-->
+        <div class="header_bar">
+            <!--\\\\\\\ header Start \\\\\\-->
+            <div class="brand">
+                <!--\\\\\\\ brand Start \\\\\\-->
+                <div class="logo row clearfix" style="display: block">
+                    <span class="theme_color">INSTAMUSICA</span> Admin</div>
+                <div class="small_logo" style="display: none">
+                    <img src="/Admin/assets/images/s-logo.png" width="50" height="47" alt="s-logo" />
+                    <img src="/Admin/assets/images/r-logo.png" width="122" height="20" alt="r-logo" /></div>
+            </div>
+            <!--\\\\\\\ brand end \\\\\\-->
+            <div class="header_top_bar">
+                <!--\\\\\\\ header top bar start \\\\\\-->
+                <a href="javascript:void(0);" class="menutoggle"><i class="fa fa-bars"></i></a>
+                
+                <div class="top_right_bar">
+                  
+                        <ul class="nav navbar-nav pull-right">
+                            <li id="user" runat="server" class="dropdown" visible="true"><a class="dropdown-toggle"
+                                data-toggle="dropdown" href="#">
+                                <asp:Literal ID="ltUser" runat="server" Text="John Doe" />
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a id="A21" href="~/Admin/Default.aspx" runat="server"><i class="fa fa-home"></i>Dashboard</a> </li>
+                                    
+                                    <li><a id="A27" href="~/MyProfile.aspx" runat="server"><i class="fa fa-user"></i>Profile</a> </li>
+                                    <li class="divider"></li>
+                            <li><a id="A28" href="~/Logout.aspx" runat="server"><i class="fa fa-power-off"></i>Logout</a> </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--\\\\\\\ header top bar end \\\\\\-->
+        </div>
+        <!--\\\\\\\ header end \\\\\\-->
+        <div class="inner">
+            <!--\\\\\\\ inner start \\\\\\-->
+            <div class="left_nav">
+                <!--\\\\\\\left_nav start \\\\\\-->
+                <div class="search_bar form-group">
+                    
+                    <div class="input-group" style="width: 100%">
+                            <asp:TextBox ID="txtKeyword" runat="server" class="form-control text1 search" placeholder="Search Dashboard..."></asp:TextBox>
+                            <span class="input-group-btn">
+                                <asp:LinkButton ID="btnSearch" class="search"
+                                    runat="server"><i class="fa fa-search" style="color:Red;"></i></asp:LinkButton><%--OnClick="btnSearch_Click" --%>
+                            </span>
+                        </div>
+                </div>
+                <div class="left_nav_slidebar">
+                    <ul>
+                        <li class="left_nav_active theme_border"><a href="<%= Page.ResolveUrl("~/Admin/Default.aspx") %>">
+                            <i class="fa fa-home"></i>DASHBOARD <span class="left_nav_pointer"></span><span class="plus">
+                                <i class="fa fa-plus"></i></span></a>
+                            <ul class="opened" style="display: block">
+                                <li><a href="<%= Page.ResolveUrl("~/Admin/Default.aspx") %>"><span>&nbsp;</span> <i
+                                    class="fa fa-circle theme_color"></i><b class="theme_color">Dashboard</b> </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);"><i class="fa fa-shopping-cart"></i>Products<span
+                            class="plus"><i class="fa fa-plus"></i></span></a>
+                            <ul>
+                                <li><a id="A10" href="~/Admin/Products/Default.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>View Products</b> </a></li>
+                                <li><a id="A11" href="~/Admin/Products/Add.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>Add a Products</b> </a></li>
+                                <li><a id="A12" href="~/Admin/Products/Categories.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>View Product Categories</b> </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);"><i class="fa fa-group"></i>Suppliers<span class="plus"><i
+                            class="fa fa-plus"></i></span></a>
+                            <ul>
+                                <li><a id="A1" href="~/Admin/Suppliers/Default.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>View Suppliers</b> </a></li>
+                                <li><a id="A2" href="~/Admin/Suppliers/Add.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>Add a Supplier</b> </a></li>
+                                <li><a id="A3" href="~/Admin/Suppliers/Item.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>View/Add Suppliers Items</b> </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);"><i class="fa fa-briefcase"></i>Inventory<span class="plus"><i
+                            class="fa fa-plus"></i></span></a>
+                            <ul>
+                                <li><a id="A4" href="~/Admin/Inventory/Default.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>View Inventory Items</b> </a></li>
+                                <li><a id="A5" href="~/Admin/Inventory/Critical.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>View Available Inventory Items</b> </a></li>
+                                <li><a id="A6" href="~/Admin/Inventory/Releasing.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>View Releasing Items</b> </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);"><i class="fa fa-bullhorn"></i>Orders<span class="plus"><i
+                            class="fa fa-plus"></i></span></a>
+                            <ul>
+                                <li><a id="A7" href="~/Admin/Orders/Default.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>View Orders</b> </a></li>
+                                <li><a id="A8" href="~/Admin/Orders/Pending.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>View Pending Orders</b> </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);"><i class="fa fa-money"></i>Purchase Orders<span
+                            class="plus"><i class="fa fa-plus"></i></span></a>
+                            <ul>
+                                <li><a id="A13" href="~/Admin/Purchases/Default.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>Purchase Orders</b> </a></li>
+                                <li><a id="A14" href="~/Admin/Purchases/Add.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>Add a Purchase Order</b> </a></li>
+                                <li><a id="A15" href="~/Admin/Purchases/Pending.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>Pending Purchase Orders</b> </a></li>
+                                <li><a id="A9" href="~/Admin/Purchases/Receiving.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>Receive Items</b> </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);"><i class="fa fa-truck"></i>Deliveries<span class="plus"><i
+                            class="fa fa-plus"></i></span></a>
+                            <ul>
+                                <li><a id="A16" href="~/Admin/Deliveries/Default.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>Deliveries</b> </a></li>
+                                <li><a id="A17" href="~/Admin/Deliveries/Default2.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>Pending Deliveries</b> </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);"><i class="fa fa-file-text-o"></i>Reports<span class="plus"><i
+                            class="fa fa-plus"></i></span></a>
+                            <ul>
+                                <li><a id="A19" href="~/Admin/Reports/Deliveries.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>Deliveries Master List</b> </a></li>
+                                <li><a id="A20" href="~/Admin/Reports/Products.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>Products Master List</b> </a></li>
+                                <li><a id="A26" href="~/Admin/Reports/Purchases.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>Purchases Master List</b> </a></li>
+                                <li><a id="A24" href="~/Admin/Reports/Suppliers.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>Suppliers Master List</b> </a></li>
+                                <li><a id="A25" href="~/Admin/Reports/Users.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>Users Master List</b> </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);"><i class="fa fa-user"></i>Users<span class="plus"><i
+                            class="fa fa-plus"></i></span></a>
+                            <ul>
+                                <li><a id="A22" href="~/Admin/Users/Default.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>View Users</b> </a></li>
+                                <li><a id="A23" href="~/Admin/Users/Add.aspx" runat="server"><span>&nbsp;</span> <i
+                                    class="fa fa-circle"></i><b>Add a User</b> </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);"><i class="fa fa-comment"></i>Reviews<span class="plus"><i
+                            class="fa fa-plus"></i></span></a>
+                            <ul>
+                                <li><a id="A18" href="~/Admin/Reviews/Default.aspx" runat="server"><span>&nbsp;</span>
+                                    <i class="fa fa-circle"></i><b>View Reviews</b> </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--\\\\\\\left_nav end \\\\\\-->
+            
+            <div class="contentpanel">
+                <div class="pull-left breadcrumb_admin clear_both">
+                    <div class="pull-left page_title theme_color">
+                        <h1>
+                            <asp:ContentPlaceHolder ID="Title" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </h1>
+                    </div>
+                </div>
+                <asp:ContentPlaceHolder ID="Content" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            </form>
+        </div>
+    </div>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/js/jquery-2.1.0.js") %>' type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/js/bootstrap.min.js") %>' type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/js/common-script.js") %>' type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/js/jquery.slimscroll.min.js") %>'
+        type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/js/jquery.sparkline.js") %>' type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/js/sparkline-chart.js") %>' type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/js/graph.js") %>' src="" type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/js/edit-graph.js") %>' type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/plugins/kalendar/kalendar.js") %>'
+        type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/plugins/kalendar/edit-kalendar.js") %>'
+        type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/plugins/sparkline/jquery.sparkline.js") %>'
+        type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/plugins/sparkline/jquery.customSelect.min.js") %>'
+        type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/plugins/sparkline/sparkline-chart.js") %>'
+        type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/plugins/sparkline/easy-pie-chart.js") %>'
+        type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/plugins/morris/morris.min.js") %>'
+        type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/plugins/morris/raphael-min.js") %>'
+        type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/plugins/morris/morris-script.js") %>'
+        type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/plugins/demo-slider/demo-slider.js") %>'
+        type="text/javascript"></script>
+    <script src='<%= Page.ResolveUrl("~/Admin/assets/plugins/knob/jquery.knob.min.js") %>'
+        type="text/javascript"></script>
+    <script type="text/javascript" src='<%= Page.ResolveUrl("~/Admin/assets/js/jPushMenu.js") %>'></script>
+    <script type="text/javascript" src='<%= Page.ResolveUrl("~/Admin/assets/js/side-chats.js") %>'></script>
+    <script type="text/javascript" src='<%= Page.ResolveUrl("~/Admin/assets/js/jquery.slimscroll.min.js") %>'></script>
+    <script type="text/javascript" src='<%= Page.ResolveUrl("~/Admin/assets/plugins/scroll/jquery.nanoscroller.js") %>'></script>
+</body>
+</html>

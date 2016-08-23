@@ -1,0 +1,12 @@
+﻿.login-form {
+	  background: #262730;
+	  width: 70%;
+	  margin: 3% auto 0;
+	  padding: 25px;
+	  height: 310px;
+	  border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+}
+
