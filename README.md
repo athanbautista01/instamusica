@@ -1,2 +1,2 @@
-# instamusica
+# instamusica (http://instamusica.azurewebsites.net)
 Instamusica is your musical instruments destination for gear and exclusive content to help you get the sound you’re after. We offer free shipping (on almost everything) from the biggest online selection of musical instruments and equipment including guitars, violins, keyboards/piano, drums &amp; percussion, and launchpads. You’ll even find an unmatched selection of Open Box instruments &amp; gear that ships worldwide.
